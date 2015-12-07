@@ -1,0 +1,23 @@
+{
+  "name": "magnets",
+  "version": "0.1.0",
+  "description": "Mag You're It",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/dtgaynor/magnets.git"
+  },
+  "keywords": [
+    "magnets"
+  ],
+  "author": "Drew Gaynor",
+  "license": "Copyright",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "passport": "^0.3.0"
+  }
+}

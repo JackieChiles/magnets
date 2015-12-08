@@ -4,6 +4,7 @@ var server = require('http').createServer(app);
 var path = require('path');
 var port = 5000;
 var passport = require('passport');
+var dataAccess = require('./server/data-access');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'public', 'views'));

@@ -46,5 +46,5 @@ module.exports.initialize = function () {
 };
 
 module.exports.getMagnets = function (message) {
-    return db.collection('magnets').find().skip(message.start).limit(message.end - message.start).toArray();
+    return db.collection('magnets').find().skip(message.skip).limit(message.take).toArray();
 };

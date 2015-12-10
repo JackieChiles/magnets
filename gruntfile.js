@@ -26,12 +26,17 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: "public/views/",
+                        cwd: 'public/views/',
                         src: ['*.html'],
-                        dest: 'dist',
-                        filter: 'isFile'
+                        dest: 'dist'
                     }
                 ]
+            },
+            fonts: {
+                expand: true,
+                cwd: 'bower_components/Materialize',
+                src: ['font/**/*.{woff2,woff,ttf}'],
+                dest: 'dist'
             }
         },
         watch: {

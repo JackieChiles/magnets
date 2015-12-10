@@ -5,7 +5,7 @@ module.exports.initialize = function (server, dataAccess) {
     io.on('connection', function (socket) {
         //message: { skip: Number, take: Number }
         socket.on('getMagnets', function (message, callback) {       
-            callback(dataAccess.getMagnets(message));
+            dataAccess.getMagnets(message.skip, message.limit, callback);
         });
     });
 };

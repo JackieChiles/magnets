@@ -2,6 +2,7 @@ var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var url = 'mongodb://localhost/magnets-temp';
 
+//Clears the database and populates it with sample data
 module.exports.initialize = function () {
     var insertSampleData = function (db, callback) {
         var createDate = new Date();
@@ -45,6 +46,14 @@ module.exports.initialize = function () {
     });
 };
 
-module.exports.getMagnets = function (message) {
-    return db.collection('magnets').find().skip(message.skip).limit(message.take).toArray();
+//Retrieves magnets with the given skip and limit parameters
+module.exports.getMagnets = function (skip, limit, callback) {
+    MongoClient.connect(url, function (err, db) {
+        assert.equal(null, err);
+        db.collection('magnets').find().skip(skip).limit(limit).toArray(function (err, magnets) {
+            assert.equal(null, err);
+            callback(magnets);
+            db.close();
+        });
+    });
 };

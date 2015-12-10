@@ -11,7 +11,8 @@ dataAccess.initialize();
 sockets.initialize(server, dataAccess);
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'public', 'views'));
+app.set('views', 'dist');
+app.use(express.static('dist'));
 app.engine('html', require('ejs').renderFile);
 app.get('/', function (req, res) {
     res.render('home.html');

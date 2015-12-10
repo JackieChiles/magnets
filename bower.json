@@ -1,0 +1,26 @@
+{
+  "name": "magnets",
+  "description": "magnets",
+  "main": "app.js",
+  "authors": [
+    "Drew Gaynor"
+  ],
+  "license": "Copyright",
+  "keywords": [
+    "magnets"
+  ],
+  "homepage": "https://github.com/JackieChiles/magnets",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "Materialize": "materialize#~0.97.3"
+  }
+}

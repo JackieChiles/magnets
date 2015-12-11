@@ -1,0 +1,16 @@
+<!doctype html>
+<html ng-app="MagnetsApp">
+  <head>
+    <title>Mag, You're It!</title>
+    <% include header.ejs %>
+  </head>
+  <body ng-controller="VisitsController" ng-init="magnetId = '<%= id %>'">
+    <h1>Mag, You're It!</h1>
+
+    <ul>
+        <li ng-repeat="visit in visits">{{ visit.user }}</li>
+    </ul>
+
+    <div>{{ magnetId }}</div>
+  </body>
+</html>

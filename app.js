@@ -7,7 +7,7 @@ var passport = require('passport');
 var dataAccess = require('./server/data-access');
 var sockets = require('./server/sockets');
 
-dataAccess.initialize();
+//dataAccess.initialize();
 sockets.initialize(server, dataAccess);
 
 app.set('view engine', 'ejs');

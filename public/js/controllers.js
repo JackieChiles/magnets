@@ -9,7 +9,12 @@ app.controller('HomeController', function ($scope, socket) {
 });
 
 app.controller('VisitsController', function ($scope, socket) {
-    $scope.visits = [];
+    $scope.magnet = null;
 
-    console.log($scope.magnetId);
+    $scope.$watch('magnetId', function (id) {
+        console.log(id);
+        socket.emit('getVisits', { skip: 0, limit: 10, id: id }, function (message) {
+            $scope.magnet = message;
+        });
+    });
 });

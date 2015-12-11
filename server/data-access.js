@@ -1,4 +1,5 @@
-var MongoClient = require('mongodb').MongoClient;
+var Mongo = require('mongodb');
+var MongoClient = Mongo.MongoClient;
 var assert = require('assert');
 var url = 'mongodb://localhost/magnets-temp';
 
@@ -53,6 +54,19 @@ module.exports.getMagnets = function (skip, limit, callback) {
         db.collection('magnets').find().skip(skip).limit(limit).toArray(function (err, magnets) {
             assert.equal(null, err);
             callback(magnets);
+            db.close();
+        });
+    });
+};
+
+//Retrieves visits for a magnet with the given skip and limit parameters
+module.exports.getVisits = function (skip, limit, id, callback) {
+    MongoClient.connect(url, function (err, db) {
+        assert.equal(null, err);
+        db.collection('magnets').findOne({ _id: new Mongo.ObjectId(id) }, { visits: { $slice: [skip, limit] } }, function (err, visits) {
+            assert.equal(null, err);
+            console.log('Visits for %s', id, visits);
+            callback(visits);
             db.close();
         });
     });

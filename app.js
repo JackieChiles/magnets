@@ -13,9 +13,16 @@ sockets.initialize(server, dataAccess);
 app.set('view engine', 'ejs');
 app.set('views', 'dist');
 app.use(express.static('dist'));
-app.engine('html', require('ejs').renderFile);
 app.get('/', function (req, res) {
-    res.render('home.html');
+    res.render('home');
+});
+app.get('/view/:id', function (req, res) {
+    res.render('visits', {
+        id: req.params.id
+    });
+});
+app.get('/view', function (req, res) {
+    res.redirect('/');
 });
 
 server.listen(port, function () {

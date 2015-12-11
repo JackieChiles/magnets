@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'public/views/',
-                        src: ['*.html'],
+                        src: ['*.ejs'],
                         dest: 'dist'
                     }
                 ]
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
                 tasks: 'concat:css'
             },
             html: {
-                files: 'public/views/*.html',
+                files: 'public/views/*.ejs',
                 tasks: 'copy:views'
             }
         }

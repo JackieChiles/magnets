@@ -7,9 +7,7 @@
   <body ng-controller="VisitsController" ng-init="magnetId = '<%= id %>'">
     <h1>Mag, You're It!</h1>
 
-    <ul>
-        <li ng-repeat="visit in magnet.visits">{{ visit.user }}</li>
-    </ul>
+    <mag-visit ng-repeat="visit in magnet.visits" visit="visit"></mag-visit>
 
     <div>{{ magnetId }}</div>
   </body>

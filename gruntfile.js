@@ -3,6 +3,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.initConfig({
         bower_concat: {
@@ -27,7 +28,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'public/views/',
-                        src: ['*.ejs'],
+                        src: ['*.*', '**/*.*'],
                         dest: 'dist'
                     }
                 ]
@@ -39,6 +40,7 @@ module.exports = function(grunt) {
                 dest: 'dist'
             }
         },
+	clean: ['dist'],
         watch: {
             js: {
                 files: 'public/**/*.js',
@@ -49,7 +51,7 @@ module.exports = function(grunt) {
                 tasks: 'concat:css'
             },
             html: {
-                files: 'public/views/*.ejs',
+                files: 'public/views/*.{ejs,html}',
                 tasks: 'copy:views'
             }
         }
@@ -57,6 +59,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', function(target) {
         grunt.task.run([
+	    'clean',
             'concat',
             'bower_concat',
             'copy'

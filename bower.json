@@ -22,6 +22,7 @@
   "dependencies": {
     "angular": "~1.4.8",
     "Materialize": "materialize#~0.97.3",
-    "socket.io-client": "~1.3.7"
+    "socket.io-client": "~1.3.7",
+    "leaflet": "~0.7.7"
   }
 }

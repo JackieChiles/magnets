@@ -71,3 +71,10 @@ module.exports.getVisits = function (skip, limit, id, callback) {
         });
     });
 };
+
+//Records a visit for a magnet
+module.exports.recordVisit = function (lat, long, user, id, callback) {
+    MongoClient.connect(url, function (err, db) {
+        //TODO
+    });
+};

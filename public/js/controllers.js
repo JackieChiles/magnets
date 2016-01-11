@@ -18,3 +18,7 @@ app.controller('VisitsController', function ($scope, socket) {
         });
     });
 });
+
+app.controller('VisitController', function ($scope, socket) {
+    
+});

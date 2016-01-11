@@ -75,6 +75,16 @@ module.exports.getVisits = function (skip, limit, id, callback) {
 //Records a visit for a magnet
 module.exports.recordVisit = function (lat, long, user, id, callback) {
     MongoClient.connect(url, function (err, db) {
-        //TODO
-    });
-};
+        assert.equal(null, err);
+        db.collection('magnets').update(
+            { _id: new Mongo.ObjectId(id) },
+            {
+                $push: {
+                    visits: {
+                        lat: lat,
+                        long: long,
+                        date: new Date(),
+                        user: user
+                    }
+                }
+            });

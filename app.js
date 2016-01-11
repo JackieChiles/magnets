@@ -24,6 +24,11 @@ app.get('/view/:id', function (req, res) {
 app.get('/view', function (req, res) {
     res.redirect('/');
 });
+app.get('/visit/:id', function (req, res) {
+    res.render('visit', {
+        id: req.params.id
+    });
+});
 
 server.listen(port, function () {
     console.log('Started on port %d...', port);

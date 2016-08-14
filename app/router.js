@@ -6,6 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('magnet:magnet_id', function() {
+    this.route('visits');
+  });
 });
 
 export default Router;

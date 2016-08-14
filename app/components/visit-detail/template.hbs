@@ -1,1 +1,3 @@
-{{yield}}
+{{#leaflet-map lat=visit.latitude lng=visit.longitude zoom=15}}
+  {{tile-layer url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
+{{/leaflet-map}}

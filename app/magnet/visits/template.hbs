@@ -1,1 +1,3 @@
-{{outlet}}
+{{#each model.visits as |visit|}}
+  {{visit-detail visit=visit}}
+{{/each}}

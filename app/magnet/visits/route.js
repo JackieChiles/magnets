@@ -4,7 +4,11 @@ export default Ember.Route.extend({
   model() {
     return {
       visits: [
-        { latitude: 39.8252124, longitude: -86.1846707 }
+        {
+	  lat: 39.8252124,
+	  lng: -86.1846707,
+	  user: "Thomas Jefferson"
+	}
       ]
     };
   }

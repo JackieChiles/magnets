@@ -1,3 +1,6 @@
-{{#leaflet-map lat=visit.latitude lng=visit.longitude zoom=15}}
+{{#leaflet-map lat=visit.lat lng=visit.lng zoom=10}}
   {{tile-layer url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
+  {{#marker-layer location=visit}}
+    {{visit.user}}
+  {{/marker-layer}}
 {{/leaflet-map}}
